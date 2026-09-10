@@ -211,37 +211,45 @@ function initBuyModal() {
   const discountValEl = document.getElementById('modal-discount-val');
   const totalPriceEl = document.getElementById('modal-total-price');
   const btnPriceText = document.getElementById('btn-price-text');
+  const modalFunpayBtn = document.getElementById('modal-funpay-btn');
 
   if (!modal) return;
 
   const BASE_PRICE = 150;
+  const DEFAULT_FUNPAY_URL = 'https://funpay.com/lots/offer?id=76067849';
+  const PROMO_FUNPAY_URL = 'https://funpay.com/lots/offer?id=76930937';
+
   let activePromo = null;
   let appliedPromoCode = '';
 
   // Configured promo codes
   const PROMO_CODES = {
-    'SCARLAYT': { price: 130, label: '-20 ₽' }, // Sets final price to 130 ₽
-    'GUSDLC': { percent: 25, label: '-25%' },   // 25% off -> 112 ₽
-    'WILD': { percent: 15, label: '-15%' },     // 15% off -> 127 ₽
-    'SALE': { percent: 20, label: '-20%' },     // 20% off -> 120 ₽
-    'FREE': { percent: 100, label: '-100%' },   // 100% off -> 0 ₽
-    'VIP': { percent: 50, label: '-50%' }       // 50% off -> 75 ₽
+    'SCARLAYT': { price: 130, label: '-20 ₽', url: PROMO_FUNPAY_URL }, // Sets final price to 130 ₽ & redirects to discounted lot
+    'GUSDLC': { percent: 25, label: '-25%', url: PROMO_FUNPAY_URL },   // 25% off -> 112 ₽
+    'WILD': { percent: 15, label: '-15%', url: PROMO_FUNPAY_URL },     // 15% off -> 127 ₽
+    'SALE': { percent: 20, label: '-20%', url: PROMO_FUNPAY_URL },     // 20% off -> 120 ₽
+    'FREE': { percent: 100, label: '-100%', url: PROMO_FUNPAY_URL },   // 100% off -> 0 ₽
+    'VIP': { percent: 50, label: '-50%', url: PROMO_FUNPAY_URL }       // 50% off -> 75 ₽
   };
 
   function updatePrices() {
     if (activePromo) {
       let discountedPrice;
       let discountLabel;
+      let targetUrl = PROMO_FUNPAY_URL;
+
       if (typeof activePromo === 'number') {
         discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - activePromo / 100)));
         discountLabel = `-${activePromo}%`;
       } else if (activePromo.price !== undefined) {
         discountedPrice = activePromo.price;
         discountLabel = activePromo.label || `-${BASE_PRICE - discountedPrice} ₽`;
+        if (activePromo.url) targetUrl = activePromo.url;
       } else {
         const pct = activePromo.percent || 0;
         discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - pct / 100)));
         discountLabel = activePromo.label || `-${pct}%`;
+        if (activePromo.url) targetUrl = activePromo.url;
       }
 
       if (basePriceEl) basePriceEl.classList.add('has-discount');
@@ -249,11 +257,13 @@ function initBuyModal() {
       if (discountValEl) discountValEl.textContent = discountLabel;
       if (totalPriceEl) totalPriceEl.textContent = `${discountedPrice} ₽`;
       if (btnPriceText) btnPriceText.textContent = `${discountedPrice} ₽`;
+      if (modalFunpayBtn) modalFunpayBtn.href = targetUrl;
     } else {
       if (basePriceEl) basePriceEl.classList.remove('has-discount');
       if (discountRow) discountRow.style.display = 'none';
       if (totalPriceEl) totalPriceEl.textContent = `${BASE_PRICE} ₽`;
       if (btnPriceText) btnPriceText.textContent = `${BASE_PRICE} ₽`;
+      if (modalFunpayBtn) modalFunpayBtn.href = DEFAULT_FUNPAY_URL;
     }
   }
 
