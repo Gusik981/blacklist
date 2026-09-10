@@ -215,25 +215,38 @@ function initBuyModal() {
   if (!modal) return;
 
   const BASE_PRICE = 150;
-  let activeDiscountPercent = 0;
+  let activePromo = null;
   let appliedPromoCode = '';
 
   // Configured promo codes
   const PROMO_CODES = {
-    'SCARLAYT': 30,  // 30% off -> 105 ₽
-    'GUSDLC': 25,    // 25% off -> 112 ₽
-    'WILD': 15,      // 15% off -> 127 ₽
-    'SALE': 20,      // 20% off -> 120 ₽
-    'FREE': 100,     // 100% off
-    'VIP': 50        // 50% off -> 75 ₽
+    'SCARLAYT': { price: 130, label: '-20 ₽' }, // Sets final price to 130 ₽
+    'GUSDLC': { percent: 25, label: '-25%' },   // 25% off -> 112 ₽
+    'WILD': { percent: 15, label: '-15%' },     // 15% off -> 127 ₽
+    'SALE': { percent: 20, label: '-20%' },     // 20% off -> 120 ₽
+    'FREE': { percent: 100, label: '-100%' },   // 100% off -> 0 ₽
+    'VIP': { percent: 50, label: '-50%' }       // 50% off -> 75 ₽
   };
 
   function updatePrices() {
-    if (activeDiscountPercent > 0) {
-      const discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - activeDiscountPercent / 100)));
+    if (activePromo) {
+      let discountedPrice;
+      let discountLabel;
+      if (typeof activePromo === 'number') {
+        discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - activePromo / 100)));
+        discountLabel = `-${activePromo}%`;
+      } else if (activePromo.price !== undefined) {
+        discountedPrice = activePromo.price;
+        discountLabel = activePromo.label || `-${BASE_PRICE - discountedPrice} ₽`;
+      } else {
+        const pct = activePromo.percent || 0;
+        discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - pct / 100)));
+        discountLabel = activePromo.label || `-${pct}%`;
+      }
+
       if (basePriceEl) basePriceEl.classList.add('has-discount');
       if (discountRow) discountRow.style.display = 'flex';
-      if (discountValEl) discountValEl.textContent = `-${activeDiscountPercent}%`;
+      if (discountValEl) discountValEl.textContent = discountLabel;
       if (totalPriceEl) totalPriceEl.textContent = `${discountedPrice} ₽`;
       if (btnPriceText) btnPriceText.textContent = `${discountedPrice} ₽`;
     } else {
@@ -255,9 +268,12 @@ function initBuyModal() {
     }
 
     if (PROMO_CODES.hasOwnProperty(code)) {
-      activeDiscountPercent = PROMO_CODES[code];
+      activePromo = PROMO_CODES[code];
       appliedPromoCode = code;
-      promoFeedback.textContent = `✓ Промокод «${code}» успешно применен! Скидка ${activeDiscountPercent}%`;
+      const discountText = typeof activePromo === 'number' 
+        ? `${activePromo}%` 
+        : (activePromo.label ? activePromo.label.replace('-', '') : `${BASE_PRICE - activePromo.price} ₽`);
+      promoFeedback.textContent = `✓ Промокод «${code}» успешно применен! Скидка ${discountText}`;
       promoFeedback.className = 'promo-feedback success';
       updatePrices();
     } else {
