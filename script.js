@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaq();
   initMobileMenu();
   fetchLiveStatus();
+  initBuyModal();
 });
 
 /* ==========================================================
@@ -195,4 +196,121 @@ async function fetchLiveStatus() {
   }
 }
 
+/* ==========================================================
+   6. Buy Modal & Promo Code System
+   ========================================================== */
+function initBuyModal() {
+  const modal = document.getElementById('buy-modal');
+  const openButtons = document.querySelectorAll('.open-buy-modal');
+  const closeBtn = document.getElementById('modal-close');
+  const promoInput = document.getElementById('promo-input');
+  const promoBtn = document.getElementById('promo-btn');
+  const promoFeedback = document.getElementById('promo-feedback');
+  const basePriceEl = document.getElementById('modal-base-price');
+  const discountRow = document.getElementById('discount-row');
+  const discountValEl = document.getElementById('modal-discount-val');
+  const totalPriceEl = document.getElementById('modal-total-price');
+  const btnPriceText = document.getElementById('btn-price-text');
+  const modalTgBtn = document.getElementById('modal-tg-btn');
+
+  if (!modal) return;
+
+  const BASE_PRICE = 150;
+  let activeDiscountPercent = 0;
+  let appliedPromoCode = '';
+
+  // Configured promo codes
+  const PROMO_CODES = {
+    'GUS': 20,       // 20% off -> 120 ₽
+    'GUSDLC': 25,    // 25% off -> 112 ₽
+    'WILD': 15,      // 15% off -> 127 ₽
+    'SALE': 30,      // 30% off -> 105 ₽
+    'FREE': 100,     // 100% off
+    'VIP': 50        // 50% off -> 75 ₽
+  };
+
+  function updatePrices() {
+    if (activeDiscountPercent > 0) {
+      const discountedPrice = Math.max(0, Math.round(BASE_PRICE * (1 - activeDiscountPercent / 100)));
+      if (basePriceEl) basePriceEl.classList.add('has-discount');
+      if (discountRow) discountRow.style.display = 'flex';
+      if (discountValEl) discountValEl.textContent = `-${activeDiscountPercent}%`;
+      if (totalPriceEl) totalPriceEl.textContent = `${discountedPrice} ₽`;
+      if (btnPriceText) btnPriceText.textContent = `${discountedPrice} ₽`;
+      if (modalTgBtn) {
+        modalTgBtn.href = `https://t.me/GusDLC_bot?start=promo_${appliedPromoCode.toLowerCase()}`;
+      }
+    } else {
+      if (basePriceEl) basePriceEl.classList.remove('has-discount');
+      if (discountRow) discountRow.style.display = 'none';
+      if (totalPriceEl) totalPriceEl.textContent = `${BASE_PRICE} ₽`;
+      if (btnPriceText) btnPriceText.textContent = `${BASE_PRICE} ₽`;
+      if (modalTgBtn) {
+        modalTgBtn.href = 'https://t.me/GusDLC_bot?start=buy_life';
+      }
+    }
+  }
+
+  function applyPromo() {
+    if (!promoInput) return;
+    const code = promoInput.value.trim().toUpperCase();
+
+    if (!code) {
+      promoFeedback.textContent = 'Пожалуйста, введите промокод';
+      promoFeedback.className = 'promo-feedback error';
+      return;
+    }
+
+    if (PROMO_CODES.hasOwnProperty(code)) {
+      activeDiscountPercent = PROMO_CODES[code];
+      appliedPromoCode = code;
+      promoFeedback.textContent = `✓ Промокод «${code}» успешно применен! Скидка ${activeDiscountPercent}%`;
+      promoFeedback.className = 'promo-feedback success';
+      updatePrices();
+    } else {
+      promoFeedback.textContent = `✕ Промокод «${code}» не найден или истек`;
+      promoFeedback.className = 'promo-feedback error';
+    }
+  }
+
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (promoInput) promoInput.focus();
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  if (promoBtn) promoBtn.addEventListener('click', applyPromo);
+  if (promoInput) {
+    promoInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyPromo();
+      }
+    });
+  }
+
+  updatePrices();
+}
+
 console.log('%c GUS DLC 1.12.2 %c Official Website Loaded ', 'background:#8b5cf6;color:#fff;font-weight:bold;padding:4px;', 'background:#0d0f18;color:#00d2ff;padding:4px;');
+
