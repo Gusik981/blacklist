@@ -211,7 +211,6 @@ function initBuyModal() {
   const discountValEl = document.getElementById('modal-discount-val');
   const totalPriceEl = document.getElementById('modal-total-price');
   const btnPriceText = document.getElementById('btn-price-text');
-  const modalTgBtn = document.getElementById('modal-tg-btn');
 
   if (!modal) return;
 
@@ -221,10 +220,10 @@ function initBuyModal() {
 
   // Configured promo codes
   const PROMO_CODES = {
-    'GUS': 20,       // 20% off -> 120 ₽
+    'SCARLAYT': 30,  // 30% off -> 105 ₽
     'GUSDLC': 25,    // 25% off -> 112 ₽
     'WILD': 15,      // 15% off -> 127 ₽
-    'SALE': 30,      // 30% off -> 105 ₽
+    'SALE': 20,      // 20% off -> 120 ₽
     'FREE': 100,     // 100% off
     'VIP': 50        // 50% off -> 75 ₽
   };
@@ -237,17 +236,11 @@ function initBuyModal() {
       if (discountValEl) discountValEl.textContent = `-${activeDiscountPercent}%`;
       if (totalPriceEl) totalPriceEl.textContent = `${discountedPrice} ₽`;
       if (btnPriceText) btnPriceText.textContent = `${discountedPrice} ₽`;
-      if (modalTgBtn) {
-        modalTgBtn.href = `https://t.me/GusDLC_bot?start=promo_${appliedPromoCode.toLowerCase()}`;
-      }
     } else {
       if (basePriceEl) basePriceEl.classList.remove('has-discount');
       if (discountRow) discountRow.style.display = 'none';
       if (totalPriceEl) totalPriceEl.textContent = `${BASE_PRICE} ₽`;
       if (btnPriceText) btnPriceText.textContent = `${BASE_PRICE} ₽`;
-      if (modalTgBtn) {
-        modalTgBtn.href = 'https://t.me/GusDLC_bot?start=buy_life';
-      }
     }
   }
 
