@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUS DLC 1.12.2 — Приватный клиент нового поколения</title>
+  <meta name="description" content="Официальный сайт приватного клиента Gus DLC для Minecraft 1.12.2. Продвинутый DayzAim, AimAssist, BlockESP, обход проверок и защита VMProtect.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas background particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient background glow blobs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <div class="logo-icon-wrapper">
+          <img src="assets/logo.png" alt="Gus DLC Logo" class="logo-img" onerror="this.style.display='none'">
+          <span class="logo-fallback">G</span>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">GUS <span class="accent-text">DLC</span></span>
+          <span class="logo-subtitle">1.12.2</span>
+        </div>
+        <div class="live-pill">
+          <span class="pulse-dot"></span>
+          <span id="header-version">v1.6 LIVE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Преимущества</a>
+        <a href="#modules" class="nav-link">Модули</a>
+        <a href="#pricing" class="nav-link">Тарифы</a>
+        <a href="#how-to-start" class="nav-link">Установка</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://t.me/GusDLC_bot" target="_blank" class="btn btn-outline btn-sm">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          Telegram Бот
+        </a>
+        <a href="#download" class="btn btn-primary btn-sm">
+          <span>Скачать</span>
+        </a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-links">
+      <a href="#features" class="mobile-link">Преимущества</a>
+      <a href="#modules" class="mobile-link">Модули</a>
+      <a href="#pricing" class="mobile-link">Тарифы</a>
+      <a href="#how-to-start" class="mobile-link">Установка</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <div class="mobile-actions">
+        <a href="https://t.me/GusDLC_bot" target="_blank" class="btn btn-outline w-full">Telegram Бот</a>
+        <a href="#download" class="btn btn-primary w-full">Скачать клиент</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-star">⚡</span>
+          <span>Новый релиз v1.6 — Максимальная производительность</span>
+        </div>
+
+        <h1 class="hero-title">
+          ДОМИНИРУЙ С <br>
+          <span class="gradient-text">GUS DLC</span> CLIENT
+        </h1>
+
+        <p class="hero-description">
+          Элитный приватный клиент для Minecraft 1.12.2. Синхронизированный DayzAim с обходом проверок, рейтрейс через прозрачные блоки, чистейший BlockESP и аппаратная защита лоадера <strong>VMProtect v3.8.1</strong>.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#download" class="btn btn-primary btn-lg glow-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Скачать лаунчер</span>
+          </a>
+          <a href="https://t.me/GusDLC_bot" target="_blank" class="btn btn-glass btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            <span>Купить ключ</span>
+          </a>
+        </div>
+
+        <!-- Live Server / Client Status Bar -->
+        <div class="status-bar-card glass-panel">
+          <div class="status-item">
+            <span class="status-dot green"></span>
+            <div>
+              <div class="status-title">Статус клиента</div>
+              <div class="status-value green-text" id="status-text">ONLINE / АКТИВЕН</div>
+            </div>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-icon">🛡️</span>
+            <div>
+              <div class="status-title">Защита ядра</div>
+              <div class="status-value">VMProtect 3.8.1</div>
+            </div>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-icon">⚡</span>
+            <div>
+              <div class="status-title">Текущая версия</div>
+              <div class="status-value" id="status-version">v1.6</div>
+            </div>
+          </div>
+          <div class="status-divider"></div>
+          <div class="status-item">
+            <span class="status-icon">🎯</span>
+            <div>
+              <div class="status-title">Античит статус</div>
+              <div class="status-value green-text">Undetected</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ПОЧЕМУ МЫ</span>
+          <h2 class="section-title">Создан для абсолютной победы</h2>
+          <p class="section-subtitle">Каждый модуль выточен вручную с нуля для идеального баланса между беспалевностью и мощью.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+            </div>
+            <h3 class="feature-title">Умный DayzAim & AimAssist</h3>
+            <p class="feature-desc">Синхронизированные модули наводки с кастомным GCD Fix. Рейтрейс беспрепятственно видит сквозь стекла, листву, двери и заборы, полностью фильтруя ботов.</p>
+          </div>
+
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="feature-title">Аппаратная защита VMProtect</h3>
+            <p class="feature-desc">Лоадер на C++ защищен лицензией VMProtect Professional 3.8.1. Маркеры Ultra-виртуализации, встроенный Anti-Debug и криптографическая привязка по HWID.</p>
+          </div>
+
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box pink">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3 class="feature-title">Максимальный FPS (0 просадок)</h3>
+            <p class="feature-desc">Оптимизированный рендеринг HUD, ESP и меню. Без утечек памяти, лагов и микрофризов даже при массовых замесах 50 на 50.</p>
+          </div>
+
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </div>
+            <h3 class="feature-title">Автоматический Updater</h3>
+            <p class="feature-desc">Забудь о ручном скачивании архивов при каждом патче. Лоадер сам сверяет версию и скачивает свежий шифрованный `client.bin` в один клик.</p>
+          </div>
+
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h3 class="feature-title">BlockESP и WallCheck</h3>
+            <p class="feature-desc">Точный рендеринг нужных блоков и руд. Автофарм и автомайн с автоматической проверкой стен, чтобы ваш персонаж никогда не застревал.</p>
+          </div>
+
+          <div class="feature-card glass-panel">
+            <div class="feature-icon-box orange">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="feature-title">Telegram Бот Управления</h3>
+            <p class="feature-desc">Мгновенное получение ключей, проверка срока подписки, сброс HWID, история заходов и телеметрия прямо в Telegram @GusDLC_bot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Modules Showcase Section -->
+    <section class="section bg-elevated" id="modules">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">АРСЕНАЛ МОДУЛЕЙ</span>
+          <h2 class="section-title">Всё необходимое в одном клиенте</h2>
+          <p class="section-subtitle">Переключайся по вкладкам и исследуй полный список доступных функций.</p>
+        </div>
+
+        <div class="modules-tabs">
+          <button class="module-tab active" data-tab="combat">⚔️ Combat</button>
+          <button class="module-tab" data-tab="render">👁️ Visuals</button>
+          <button class="module-tab" data-tab="world">⛏️ World & Farm</button>
+          <button class="module-tab" data-tab="player">👤 Player</button>
+          <button class="module-tab" data-tab="security">🔒 Защита</button>
+        </div>
+
+        <div class="modules-content">
+          <!-- Combat Tab -->
+          <div class="tab-pane active" id="combat">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">DayzAim</span>
+                  <span class="mod-tag hot">ТОП</span>
+                </div>
+                <p class="mod-desc">Специализированная боевая наводка. Синхронизированный поворот тела и головы, беспалевные сглаживания углов и автозахват цели.</p>
+                <div class="mod-meta">
+                  <span>Дистанция: до 80 блоков</span>
+                  <span>Обход: Полный</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">AimAssist</span>
+                  <span class="mod-tag">Legit</span>
+                </div>
+                <p class="mod-desc">Плавный легитный ассистент наводки. Идеально повторяет движение руки игрока с компенсацией GCD.</p>
+                <div class="mod-meta">
+                  <span>Кастомный FOV</span>
+                  <span>WallCheck</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Hitbox</span>
+                  <span class="mod-tag">PvP</span>
+                </div>
+                <p class="mod-desc">Расширение хитбоксов противников без рассинхронизации. Позволяет наносить удары даже при малейшем отклонении прицела.</p>
+                <div class="mod-meta">
+                  <span>Настраиваемый размер</span>
+                  <span>Цветовая индикация</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">HoldClicker</span>
+                  <span class="mod-tag">Macro</span>
+                </div>
+                <p class="mod-desc">Автоматический автокликер при удержании ЛКМ со случайным разбросом задержки кликов (CPS Jitter).</p>
+                <div class="mod-meta">
+                  <span>Min/Max CPS</span>
+                  <span>Естественный клик</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">HitSound</span>
+                  <span class="mod-tag">Audio</span>
+                </div>
+                <p class="mod-desc">Приятная звуковая озвучка попаданий по противнику с кастомными звуками (Neverlose, Skeet, Bell, Moan).</p>
+                <div class="mod-meta">
+                  <span>Регулировка громкости</span>
+                  <span>Синхронизация удара</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Render Tab -->
+          <div class="tab-pane" id="render">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">BlockESP</span>
+                  <span class="mod-tag hot">X-Ray</span>
+                </div>
+                <p class="mod-desc">Отображение нужных блоков, сундуков, спавнеров и ценных руд сквозь стены с плавной подсветкой и боксами.</p>
+                <div class="mod-meta">
+                  <span>Выбор радиуса</span>
+                  <span>Цвета по типам</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">SkeletonESP</span>
+                  <span class="mod-tag">3D</span>
+                </div>
+                <p class="mod-desc">Точный рендеринг 3D-скелета моделей игроков в реальном времени даже за препятствиями.</p>
+                <div class="mod-meta">
+                  <span>Нулевой FPS Drop</span>
+                  <span>Учет анимаций</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Arrows</span>
+                  <span class="mod-tag">Radar</span>
+                </div>
+                <p class="mod-desc">Индикаторы стрелок вокруг прицела, указывающие точное направление на врагов вне зоны видимости.</p>
+                <div class="mod-meta">
+                  <span>Фильтр ботов</span>
+                  <span>Градиент дистанции</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">ViewModel</span>
+                  <span class="mod-tag">Custom</span>
+                </div>
+                <p class="mod-desc">Кастомизация расположения рук, оружия и предметов на экране. Смещение по осям X, Y, Z и кнопка сброса настроек.</p>
+                <div class="mod-meta">
+                  <span>Полный сброс</span>
+                  <span>Плавная анимация</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">SoundESP</span>
+                  <span class="mod-tag">Audio 3D</span>
+                </div>
+                <p class="mod-desc">Визуализация шагов, выстрелов и действий игроков кругами на земле с плавной анимацией затухания.</p>
+                <div class="mod-meta">
+                  <span>Радиус звука</span>
+                  <span>Позиционирование</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- World Tab -->
+          <div class="tab-pane" id="world">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">AutoFarm</span>
+                  <span class="mod-tag hot">AFK</span>
+                </div>
+                <p class="mod-desc">Умный авто-фарм мобов и ресурсов. Автоповорот, правильный расчет таймингов удара и защита от фризов при поиске.</p>
+                <div class="mod-meta">
+                  <span>Авто-выключение</span>
+                  <span>Умный поиск</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">AutoMine</span>
+                  <span class="mod-tag">Dig</span>
+                </div>
+                <p class="mod-desc">Автоматическое копание блоков с функцией WallCheck. Предотвращает копание в пустоту и застревание персонажа.</p>
+                <div class="mod-meta">
+                  <span>WallCheck включен</span>
+                  <span>Выбор инструментов</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Player Tab -->
+          <div class="tab-pane" id="player">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">FakePlayer</span>
+                  <span class="mod-tag">Spawn</span>
+                </div>
+                <p class="mod-desc">Создание тестового бота-игрока для настройки и калибровки DayzAim, AimAssist и визуалов прямо в одиночной игре.</p>
+                <div class="mod-meta">
+                  <span>Реалистичный хитбокс</span>
+                  <span>Управление спавном</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">NameProtect</span>
+                  <span class="mod-tag">Streamer</span>
+                </div>
+                <p class="mod-desc">Полная замена твоего реального никнейма и никнеймов друзей на клиенте для безопасной записи видео и стримов.</p>
+                <div class="mod-meta">
+                  <span>Маскировка в чате</span>
+                  <span>Скрытие таба</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Tab -->
+          <div class="tab-pane" id="security">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">VMProtect v3.8.1</span>
+                  <span class="mod-tag hot">Security</span>
+                </div>
+                <p class="mod-desc">Упаковка и виртуализация критических функций лоадера. Защита от декомпиляторов, дампа памяти и отладки.</p>
+                <div class="mod-meta">
+                  <span>Маркеры Ultra</span>
+                  <span>Anti-Dumping</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Крипто HWID Guard</span>
+                  <span class="mod-tag">Crypto</span>
+                </div>
+                <p class="mod-desc">Привязка ключей через SHA-256 хэширование GUID материнской платы и серийного номера накопителя. Ключ невозможно украсть.</p>
+                <div class="mod-meta">
+                  <span>Сброс через бота</span>
+                  <span>Мгновенный чек</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Anti-Debug & Trap</span>
+                  <span class="mod-tag">Alert</span>
+                </div>
+                <p class="mod-desc">Мгновенный детект x64dbg, Cheat Engine, IDA, Process Hacker, Fiddler. Отправка тревоги с IP-адресом злоумышленника в Telegram.</p>
+                <div class="mod-meta">
+                  <span>Моментальный Alert</span>
+                  <span>Автокилл процесса</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ДОСТУП И ТАРИФЫ</span>
+          <h2 class="section-title">Выбери подходящий тариф</h2>
+          <p class="section-subtitle">Ключи активируются автоматически через нашего Telegram-бота 24/7 сразу после оплаты.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- 1 Day -->
+          <div class="pricing-card glass-panel">
+            <div class="pricing-header">
+              <span class="plan-name">1 ДЕНЬ</span>
+              <div class="plan-price">99 ₽ <span class="plan-period">/ 24 часа</span></div>
+              <p class="plan-desc">Идеально для теста и проверки функционала на серверах.</p>
+            </div>
+            <ul class="plan-features">
+              <li>✓ Полный доступ ко всем модулям</li>
+              <li>✓ DayzAim & AimAssist</li>
+              <li>✓ Привязка к 1 ПК (HWID)</li>
+              <li>✓ Поддержка в Telegram</li>
+              <li>✓ Автообновления</li>
+            </ul>
+            <a href="https://t.me/GusDLC_bot?start=buy_1d" target="_blank" class="btn btn-outline w-full">Купить на 1 день</a>
+          </div>
+
+          <!-- 7 Days (Popular) -->
+          <div class="pricing-card glass-panel popular-card">
+            <div class="popular-badge">ХИТ ПРОДАЖ</div>
+            <div class="pricing-header">
+              <span class="plan-name">7 ДНЕЙ</span>
+              <div class="plan-price">299 ₽ <span class="plan-period">/ неделя</span></div>
+              <p class="plan-desc">Оптимальный выбор для активной игры на всю неделю.</p>
+            </div>
+            <ul class="plan-features">
+              <li>✓ Полный доступ ко всем модулям</li>
+              <li>✓ DayzAim & AimAssist</li>
+              <li>✓ Возможность 1 сброса HWID</li>
+              <li>✓ Приоритетная поддержка</li>
+              <li>✓ Доступ к бета-функциям</li>
+              <li>✓ Автообновления v1.6+</li>
+            </ul>
+            <a href="https://t.me/GusDLC_bot?start=buy_7d" target="_blank" class="btn btn-primary w-full glow-btn">Купить на 7 дней</a>
+          </div>
+
+          <!-- 30 Days -->
+          <div class="pricing-card glass-panel">
+            <div class="pricing-header">
+              <span class="plan-name">30 ДНЕЙ</span>
+              <div class="plan-price">699 ₽ <span class="plan-period">/ месяц</span></div>
+              <p class="plan-desc">Для постоянных игроков. Максимальная выгода в пересчете на дни.</p>
+            </div>
+            <ul class="plan-features">
+              <li>✓ Полный доступ ко всем модулям</li>
+              <li>✓ Бесплатные сбросы HWID (до 3 раз)</li>
+              <li>✓ VIP роль в Telegram</li>
+              <li>✓ Приоритетные фиксы под ваши серверы</li>
+              <li>✓ Все будущие обновления</li>
+            </ul>
+            <a href="https://t.me/GusDLC_bot?start=buy_30d" target="_blank" class="btn btn-outline w-full">Купить на 30 дней</a>
+          </div>
+
+          <!-- Lifetime -->
+          <div class="pricing-card glass-panel vip-card">
+            <div class="vip-badge">VIP НАВСЕГДА</div>
+            <div class="pricing-header">
+              <span class="plan-name">LIFETIME</span>
+              <div class="plan-price">1 499 ₽ <span class="plan-period">/ навсегда</span></div>
+              <p class="plan-desc">Один платеж — вечный доступ ко всем версиям и апдейтам Gus DLC.</p>
+            </div>
+            <ul class="plan-features">
+              <li>✓ Пожизненный доступ навсегда</li>
+              <li>✓ Безлимитные сбросы HWID</li>
+              <li>✓ Личный контакт с разработчиком</li>
+              <li>✓ Ранний доступ к новым обходам</li>
+              <li>✓ Уникальная плашка VIP в лоадере</li>
+            </ul>
+            <a href="https://t.me/GusDLC_bot?start=buy_life" target="_blank" class="btn btn-gradient w-full">Купить Навсегда</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Start (Installation) -->
+    <section class="section bg-elevated" id="how-to-start">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">БЫСТРЫЙ СТАРТ</span>
+          <h2 class="section-title">Как начать играть за 3 минуты</h2>
+          <p class="section-subtitle">Простой и понятный процесс без сложных танцев с бубном.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card glass-panel">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Скачай клиент</h3>
+            <p class="step-desc">Скачай архив <code>GusDLC_Client.zip</code> с нашего официального сайта или GitHub и распакуй его в любую удобную папку.</p>
+          </div>
+
+          <div class="step-card glass-panel">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Получи ключ</h3>
+            <p class="step-desc">Перейди в нашего Telegram-бота <strong>@GusDLC_bot</strong>, выбери тариф и скопируй полученный лицензионный ключ.</p>
+          </div>
+
+          <div class="step-card glass-panel">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Запусти и играй</h3>
+            <p class="step-desc">Запусти <code>GusDLC_Loader.exe</code>, введи ключ и нажми кнопку <strong>«Запустить игру»</strong>. Клиент сам запустится и подключится!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download CTA Block -->
+    <section class="download-section" id="download">
+      <div class="container">
+        <div class="download-card glass-panel glow-border">
+          <div class="download-content">
+            <span class="section-tag">ОФИЦИАЛЬНЫЙ РЕЛИЗ</span>
+            <h2 class="download-heading">Скачать Gus DLC Client <span class="accent-text">v1.6</span></h2>
+            <p class="download-subheading">В архиве содержится защищенный лоадер, зашифрованный клиент и необходимые библиотеки.</p>
+            
+            <div class="download-features-list">
+              <span>✓ Windows 10 / 11 (x64)</span>
+              <span>✓ Java 8 / OpenJDK</span>
+              <span>✓ Встроенный обход и фикс мыши</span>
+            </div>
+
+            <div class="download-buttons-wrap">
+              <a href="https://github.com/Gusik981/blacklist/releases/latest/download/GusDLC_Client.zip" class="btn btn-primary btn-xl glow-btn" id="main-download-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Скачать GusDLC_Client.zip (~83 МБ)</span>
+              </a>
+              <a href="https://t.me/GusDLC_bot" target="_blank" class="btn btn-glass btn-xl">
+                <span>Бот в Telegram</span>
+              </a>
+            </div>
+            <p class="download-note">Пароль на архив: отсутствует • Все файлы подписаны и проверены</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <div class="container max-w-md">
+        <div class="section-header">
+          <span class="section-tag">ВОПРОСЫ И ОТВЕТЫ</span>
+          <h2 class="section-title">Часто задаваемые вопросы</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item glass-panel">
+            <button class="faq-question">
+              <span>Банят ли за использование Gus DLC?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Наши модули наводки (DayzAim и AimAssist) снабжены кастомной рандомизацией движений и фиксом GCD. Они полностью маскируют прицел под движения живого человека. Кроме того, клиент обходит визуальные проверки серверных скриншотов и античитов.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question">
+              <span>Как работает привязка по HWID?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>При первом вводе ключа лоадер генерирует уникальный аппаратный хэш вашего компьютера и надежно привязывает лицензию. Если вы смените комплектующие или переустановите Windows, сбросить привязку можно через команду <code>/reset</code> в нашем Telegram-боте.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question">
+              <span>Нужно ли перекачивать лаунчер при выходе обновлений?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Нет! В лоадер встроен автоматический загрузчик. При запуске он сам проверяет наличие новой версии на сервере и за считанные секунды загружает свежий зашифрованный билд клиента.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-panel">
+            <button class="faq-question">
+              <span>Что делать, если антивирус или SmartScreen ругается на файл?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Файл `GusDLC_Loader.exe` упакован протектором VMProtect для защиты авторского кода от взлома. Некоторые антивирусы реагируют на сам факт наличия защиты (протектора). Добавьте папку с клиентом в исключения антивируса.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="logo">
+          <span class="logo-title">GUS <span class="accent-text">DLC</span></span>
+        </div>
+        <p class="footer-desc">Премиальное решение для Minecraft 1.12.2. Защищено VMProtect.</p>
+        <p class="footer-copy">© 2026 Gus DLC Client. Все права защищены.</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-col">
+          <div class="footer-col-title">Навигация</div>
+          <a href="#features">Преимущества</a>
+          <a href="#modules">Модули</a>
+          <a href="#pricing">Тарифы</a>
+          <a href="#download">Скачать</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Контакты и Бот</div>
+          <a href="https://t.me/GusDLC_bot" target="_blank">Telegram Бот (@GusDLC_bot)</a>
+          <a href="https://t.me/WILDLC" target="_blank">Создатель / Саппорт (@WILDLC)</a>
+          <a href="https://github.com/Gusik981" target="_blank">GitHub Проекта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
