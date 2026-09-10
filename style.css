@@ -1141,3 +1141,10 @@ body {
   backdrop-filter: blur(16px);
 }
 
+.steps-two-col {
+  max-width: 860px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+
