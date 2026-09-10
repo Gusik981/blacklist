@@ -207,6 +207,7 @@
 
         <div class="modules-tabs">
           <button class="module-tab active" data-tab="combat">⚔️ Combat</button>
+          <button class="module-tab" data-tab="movement">🏃 Movement</button>
           <button class="module-tab" data-tab="render">👁️ Visuals</button>
           <button class="module-tab" data-tab="world">⛏️ World & Farm</button>
           <button class="module-tab" data-tab="player">👤 Player</button>
@@ -276,12 +277,113 @@
                   <span>Синхронизация удара</span>
                 </div>
               </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">NoRecoil</span>
+                  <span class="mod-tag">Weapon</span>
+                </div>
+                <p class="mod-desc">Полное подавление отдачи оружия и тряски экрана при стрельбе или ударах для максимальной точности.</p>
+                <div class="mod-meta">
+                  <span>100% стабильность</span>
+                  <span>Без тряски</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">AntiZoomSmooth</span>
+                  <span class="mod-tag">Optic</span>
+                </div>
+                <p class="mod-desc">Сглаживание и стабилизация резкого зума при прицеливании через оптические прицелы и бинокли.</p>
+                <div class="mod-meta">
+                  <span>Плавный зум</span>
+                  <span>Анти-рывок</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">MCF (Middle Click Friend)</span>
+                  <span class="mod-tag">Social</span>
+                </div>
+                <p class="mod-desc">Мгновенное добавление или удаление игроков из списка друзей нажатием колесика мыши прямо в бою.</p>
+                <div class="mod-meta">
+                  <span>1 клик</span>
+                  <span>Интеграция с аимом</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Render Tab -->
+          <!-- Movement Tab -->
+          <div class="tab-pane" id="movement">
+            <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">AutoSprint</span>
+                  <span class="mod-tag hot">Speed</span>
+                </div>
+                <p class="mod-desc">Постоянный автоматический спринт во всех направлениях без необходимости зажимать клавишу Ctrl или двойного W.</p>
+                <div class="mod-meta">
+                  <span>OmniSprint</span>
+                  <span>Экономия сил</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">GuiMove</span>
+                  <span class="mod-tag">Utility</span>
+                </div>
+                <p class="mod-desc">Свободное движение, прыжки и спринт персонажа даже при открытом инвентаре, чате или меню клиента.</p>
+                <div class="mod-meta">
+                  <span>WASD + Jump</span>
+                  <span>Работа в сундуках</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">NoJumpDelay</span>
+                  <span class="mod-tag">Legit</span>
+                </div>
+                <p class="mod-desc">Устранение ванильной задержки между прыжками в Minecraft для максимально быстрого и непрерывного банихопа.</p>
+                <div class="mod-meta">
+                  <span>Быстрый BHop</span>
+                  <span>Без задержек</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Timer</span>
+                  <span class="mod-tag">Bypass</span>
+                </div>
+                <p class="mod-desc">Точная настройка скорости игрового таймера клиента. Позволяет ускорять или плавно замедлять действия.</p>
+                <div class="mod-meta">
+                  <span>Плавный множитель</span>
+                  <span>Настройка тиков</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Render / Visuals Tab -->
           <div class="tab-pane" id="render">
             <div class="modules-grid">
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">ESP (Player ESP)</span>
+                  <span class="mod-tag hot">Wallhack</span>
+                </div>
+                <p class="mod-desc">Подсветка игроков через любые стены: 2D боксы, полосы здоровья (Healthbar), расстояние, броня и оружие в руках.</p>
+                <div class="mod-meta">
+                  <span>Box + HP + Armor</span>
+                  <span>Выбор цветов</span>
+                </div>
+              </div>
+
               <div class="mod-item glass-panel">
                 <div class="mod-header">
                   <span class="mod-name">BlockESP</span>
@@ -308,10 +410,82 @@
 
               <div class="mod-item glass-panel">
                 <div class="mod-header">
+                  <span class="mod-name">Chams</span>
+                  <span class="mod-tag">Visual</span>
+                </div>
+                <p class="mod-desc">Градиентная и монохромная заливка моделей игроков и сущностей сквозь стены с поддержкой свечения.</p>
+                <div class="mod-meta">
+                  <span>Glow эффект</span>
+                  <span>Сквозь стены</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">ItemESP</span>
+                  <span class="mod-tag">Loot</span>
+                </div>
+                <p class="mod-desc">Подсветка лежащих на земле предметов и дропа с указанием названия и расстояния до них.</p>
+                <div class="mod-meta">
+                  <span>Дистанция</span>
+                  <span>Фильтр лута</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">HouseESP</span>
+                  <span class="mod-tag">Radar</span>
+                </div>
+                <p class="mod-desc">Специализированное обнаружение баз, построек и закрытых помещений с ценным лутом на серверах выживания.</p>
+                <div class="mod-meta">
+                  <span>Дальний радиус</span>
+                  <span>Контуры базы</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">BulletESP</span>
+                  <span class="mod-tag">Combat</span>
+                </div>
+                <p class="mod-desc">Визуализация траекторий полета пуль, снарядов и стрел с лазерными линиями и точками попадания.</p>
+                <div class="mod-meta">
+                  <span>Лазерные трассеры</span>
+                  <span>Точки удара</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">TargetESP</span>
+                  <span class="mod-tag">Target</span>
+                </div>
+                <p class="mod-desc">Эффектная анимация метки вокруг текущей цели аима (кольца, призма, спирали и градиентные частицы).</p>
+                <div class="mod-meta">
+                  <span>Множество стилей</span>
+                  <span>Плавное слежение</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">SoundESP</span>
+                  <span class="mod-tag">Audio 3D</span>
+                </div>
+                <p class="mod-desc">Визуализация шагов, выстрелов и действий игроков расширяющимися кругами на земле с плавным затуханием.</p>
+                <div class="mod-meta">
+                  <span>Радиус звука</span>
+                  <span>Позиционирование</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
                   <span class="mod-name">Arrows</span>
                   <span class="mod-tag">Radar</span>
                 </div>
-                <p class="mod-desc">Индикаторы стрелок вокруг прицела, указывающие точное направление на врагов вне зоны видимости.</p>
+                <p class="mod-desc">Стрелки-указатели вокруг прицела, отображающие направление на врагов вне зоны прямой видимости.</p>
                 <div class="mod-meta">
                   <span>Фильтр ботов</span>
                   <span>Градиент дистанции</span>
@@ -332,19 +506,67 @@
 
               <div class="mod-item glass-panel">
                 <div class="mod-header">
-                  <span class="mod-name">SoundESP</span>
-                  <span class="mod-tag">Audio 3D</span>
+                  <span class="mod-name">ChinaHat</span>
+                  <span class="mod-tag">Cosmetics</span>
                 </div>
-                <p class="mod-desc">Визуализация шагов, выстрелов и действий игроков кругами на земле с плавной анимацией затухания.</p>
+                <p class="mod-desc">Красивая светящаяся азиатская шляпа над головой персонажа с RGB градиентом и анимацией вращения.</p>
                 <div class="mod-meta">
-                  <span>Радиус звука</span>
-                  <span>Позиционирование</span>
+                  <span>RGB палитра</span>
+                  <span>Настройка радиуса</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Wings & Trails</span>
+                  <span class="mod-tag">Style</span>
+                </div>
+                <p class="mod-desc">Анимированные крылья за спиной персонажа и неоновые шлейфы-хвосты частиц при быстром беге и прыжках.</p>
+                <div class="mod-meta">
+                  <span>3D крылья</span>
+                  <span>Шлейф за игроком</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Fullbright & Fog</span>
+                  <span class="mod-tag">Environment</span>
+                </div>
+                <p class="mod-desc">Безупречная ночная видимость без факелов и настройка плотности/цвета игрового тумана под любой вкус.</p>
+                <div class="mod-meta">
+                  <span>100% гамма</span>
+                  <span>Custom Fog</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">CameraClip & MotionBlur</span>
+                  <span class="mod-tag">Camera</span>
+                </div>
+                <p class="mod-desc">Свободный обзор от третьего лица сквозь стены без застревания камеры и кинематографичный моушн-блюр.</p>
+                <div class="mod-meta">
+                  <span>Без застреваний</span>
+                  <span>Кино-эффект</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">HUD & Notifications</span>
+                  <span class="mod-tag">Interface</span>
+                </div>
+                <p class="mod-desc">Кастомизируемый HUD (список активных модулей, FPS, пинг, броня, координаты) и всплывающие плашки уведомлений.</p>
+                <div class="mod-meta">
+                  <span>Модерн дизайн</span>
+                  <span>Настройка цветов</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- World Tab -->
+          <!-- World & Farm Tab -->
           <div class="tab-pane" id="world">
             <div class="modules-grid">
               <div class="mod-item glass-panel">
@@ -368,6 +590,30 @@
                 <div class="mod-meta">
                   <span>WallCheck включен</span>
                   <span>Выбор инструментов</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">Trip</span>
+                  <span class="mod-tag">Safe</span>
+                </div>
+                <p class="mod-desc">Автоматический контроль безопасного перемещения, предупреждение о ловушках и растяжках на пути игрока.</p>
+                <div class="mod-meta">
+                  <span>Детект ловушек</span>
+                  <span>Безопасный путь</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">BlockOverlay</span>
+                  <span class="mod-tag">Render</span>
+                </div>
+                <p class="mod-desc">Стильная цветная подсветка и обводка блока, на который в данный момент направлен прицел игрока.</p>
+                <div class="mod-meta">
+                  <span>RGB обводка</span>
+                  <span>Мягкая заливка</span>
                 </div>
               </div>
             </div>
@@ -397,6 +643,30 @@
                 <div class="mod-meta">
                   <span>Маскировка в чате</span>
                   <span>Скрытие таба</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">RPSpoofer</span>
+                  <span class="mod-tag">Bypass</span>
+                </div>
+                <p class="mod-desc">Спуфер и подмена параметров ресурспаков и пакетов от сервера для надежного обхода серверных проверок.</p>
+                <div class="mod-meta">
+                  <span>Пакетный спуф</span>
+                  <span>Анти-детект</span>
+                </div>
+              </div>
+
+              <div class="mod-item glass-panel">
+                <div class="mod-header">
+                  <span class="mod-name">ItemScroller</span>
+                  <span class="mod-tag">Inventory</span>
+                </div>
+                <p class="mod-desc">Мгновенное перемещение предметов в сундуках и инвентаре с помощью прокрутки колесика мыши.</p>
+                <div class="mod-meta">
+                  <span>Быстрый лут</span>
+                  <span>Колесико мыши</span>
                 </div>
               </div>
             </div>
