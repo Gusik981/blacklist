@@ -350,6 +350,34 @@ body {
   box-shadow: 0 8px 35px rgba(236, 72, 153, 0.6);
 }
 
+.btn-funpay {
+  background: linear-gradient(135deg, #0077ff 0%, #0052cc 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(0, 119, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-funpay:hover {
+  background: linear-gradient(135deg, #1a8cff 0%, #0066ee 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 119, 255, 0.65);
+}
+
+.sub-buy-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sub-buy-link:hover {
+  color: var(--accent-cyan);
+}
+
 .glow-btn {
   position: relative;
   overflow: hidden;
